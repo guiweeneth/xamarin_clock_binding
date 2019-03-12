@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+             xmlns:local="clr-namespace:clock_xamarin_binding" 
+             x:Class="clock_xamarin_binding.MainPage">
+     <ContentPage.Resources>
+        <local:Machinery x:Key="clock" />
+        
+        <Style TargetType="Label" >
+            <Setter Property="FontSize" Value="50"/>
+        </Style>
+    </ContentPage.Resources>
+    
+    <StackLayout BindingContext="{Binding Source={StaticResource clock}}" 
+                 VerticalOptions="Center"
+                 HorizontalOptions="Center"
+                 Orientation="Horizontal">
+        <Label Text="{Binding Path=Hour, Mode=OneWay}" />
+        <Label Text=":" />
+        <Label Text="{Binding Path=Minute, Mode=OneWay}" />
+        <Label Text=":" />
+        <Label Text="{Binding Path=Second, Mode=OneWay}" />
+    </StackLayout>
+</ContentPage>
